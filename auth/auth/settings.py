@@ -10,11 +10,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-l)y7kjf!ou2a!)__skc$yg6-ta#(-xcbf!usyl47-l^2ov@+s^'
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
@@ -120,17 +118,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# #! Email setup
-# EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend' # remove this line when uploade on hosting cpanel
-# EMAIL_HOST='smtp.gmail.com'
-# EMAIL_PORT=587
-# EMAIL_USE_TLS=True
-# EMAIL_HOST_USER='banglait2000@gmail.com'
-# EMAIL_HOST_PASSWORD='qeeebbiccvjztahs '
-# # DEFAULT_FROM_EMAIL="banglait2000@gmail.com"
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
 
 #! Email setup
 #! remove this line when uploade on hosting cpanel
