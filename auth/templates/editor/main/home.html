@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Editor </title>
+</head>
+    <body>
+    	{% if user.is_authenticated and user.first_name == '' %}
+        <p>Login success Editor!</p>
+
+        <li>
+            <div class="dropdown header-top-dropdown">
+                <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Hello, {{user.username}}
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <a class="dropdown-item" href="{% url 'logout' %}"> Logout</a>
+            </div>
+        </li>
+
+        {% elif user.is_authenticated %}
+        <p>Login success Editor!</p>
+
+        <li>
+            <div class="dropdown header-top-dropdown">
+                <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Hello, {{user.username}}&nbsp;{{user.last_name}}
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <a class="dropdown-item" href="{% url 'logout' %}"> Logout</a>
+            </div>
+        </li>
+                                        
+        {% else %}
+        <p>Editor!</p>
+
+        <li>
+            <a href="{% url 'login' %}">Login</a>
+        </li>
+
+        {% endif %}
+    </body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Documentation</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background-color: var(--dark-color);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .sidebar-header {
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-header h2 {
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-header p {
+            color: var(--light-color);
+            font-size: 0.9rem;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            color: var(--light-color);
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-menu a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .sidebar-menu a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .sidebar-menu i {
+            margin-right: 10px;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 30px;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .section h2 {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .section h3 {
+            color: var(--secondary-color);
+            margin: 20px 0 15px;
+        }
+        
+        /* Code Blocks */
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        /* Credential Boxes */
+        .credential-box {
+            background-color: #f8f9fa;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .credential-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .credential-item {
+            margin-bottom: 8px;
+        }
+        
+        .credential-item strong {
+            display: inline-block;
+            width: 80px;
+        }
+        
+        /* Alert Boxes */
+        .alert {
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        
+        .alert-warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            color: #856404;
+        }
+        
+        .alert-info {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            color: #0c5460;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>Project Docs</h2>
+            <h4>Project Name: Authentication</h4>
+            <p>Version 1.0</p>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="#setup" class="active">Setup Guide</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#credentials">Login Credentials</a></li>
+            <li><a href="#structure">Project Structure</a></li>
+            <li><a href="#env-vars">Environment Variables</a></li>
+            <!-- <li><a href="#endpoints">API Endpoints</a></li> -->
+        </ul>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div id="setup" class="section">
+            <h2>Project Setup Guide</h2>
+            
+            <h3>1. Create Virtual Environment</h3>
+            <pre><code>python -m venv env</code></pre>
+            
+            <h3>2. Activate Environment</h3>
+            <p>Windows:</p>
+            <pre><code>.\env\Scripts\activate</code></pre>
+            <p>macOS/Linux:</p>
+            <pre><code>source env/bin/activate</code></pre>
+            
+            <h3>3. Install Dependencies</h3>
+            <pre><code>pip install -r requirements.txt</code></pre>
+            
+            <h3>4. Run Development Server</h3>
+            <pre><code>python manage.py runserver 4444</code></pre>
+            
+            <div class="alert alert-warning">
+                <strong>Note:</strong> Make sure you have created a <code>.env</code> file with all required environment variables before starting the server.
+            </div>
+        </div>
+        
+        <div id="features" class="section">
+            <h2>Project Features</h2>
+            <ul>
+                <li>User login & registration system</li>
+                <li>Custom admin and editor dashboard authentication</li>
+                <li>Password recovery functionality</li>
+                <li>Environment variables management using <code>python-decouple</code></li>
+                <li>Role-based access control (Admin, Editor, Customer)</li>
+                <li>Secure password handling</li>
+            </ul>
+        </div>
+        
+        <div id="credentials" class="section">
+            <h2>Login Credentials</h2>
+            
+            <div class="credential-box">
+                <h4>1. Default Django Admin</h4>
+                <div class="credential-item"><strong>Username:</strong> admin</div>
+                <div class="credential-item"><strong>Email:</strong> admin@gmail.com</div>
+                <div class="credential-item"><strong>Password:</strong> 123</div>
+            </div>
+            
+            <div class="credential-box">
+                <h4>2. Customer Account</h4>
+                <div class="credential-item"><strong>Email:</strong> sayefahmed251@gmail.com</div>
+                <div class="credential-item"><strong>Password:</strong> Sayef123!</div>
+            </div>
+            
+            <div class="credential-box">
+                <h4>3. Custom Admin Account</h4>
+                <div class="credential-item"><strong>Email:</strong> ad@gmail.com</div>
+                <div class="credential-item"><strong>Password:</strong> Ad1234!</div>
+            </div>
+            
+            <div class="credential-box">
+                <h4>4. Editor Account</h4>
+                <div class="credential-item"><strong>Email:</strong> Ed@gmail.com</div>
+                <div class="credential-item"><strong>Password:</strong> Ed1234!</div>
+            </div>
+            
+            <div class="alert alert-info">
+                <strong>Access Points:</strong><br>
+                - Main application: <code>http://localhost:4444/</code><br>
+                - Admin interface: <code>http://localhost:4444/admin/</code>
+            </div>
+        </div>
+        
+        <div id="structure" class="section">
+            <h2>Project Structure</h2>
+            <pre>
+project/
+│
+├── .env                # Environment variables
+├── requirements.txt    # Dependencies list
+├── manage.py           # Django management script
+│
+├── app/                # Main application directory
+│   ├── models.py       # Database models
+│   ├── views.py        # Application views
+│   ├── urls.py         # URL routing
+│   ├── admin.py        # Admin configuration
+│   ├── forms.py        # Form definitions
+│   └── ...
+│
+├── templates/          # HTML templates
+│   ├── base.html       # Base template
+│   ├── registration/   # Auth templates
+│   └── ...
+│
+└── static/             # Static files
+    ├── css/            # Stylesheets
+    ├── js/             # JavaScript files
+    └── images/         # Image assets
+            </pre>
+        </div>
+        
+        <div id="env-vars" class="section">
+            <h2>Environment Variables</h2>
+            <p>The project uses the following environment variables (set in <code>.env</code> file):</p>
+            
+            <h3>Required Variables</h3>
+            <ul>
+                <li><code>SECRET_KEY</code> - Django secret key</li>
+                <li><code>DEBUG</code> - Debug mode (True/False)</li>
+                <li><code>ALLOWED_HOSTS</code> - Comma-separated list of allowed hosts</li>
+                <li><code>DATABASE_URL</code> - Database connection URL</li>
+            </ul>
+            
+            <h3>Email Configuration</h3>
+            <ul>
+                <li><code>EMAIL_HOST</code> - Email server host</li>
+                <li><code>EMAIL_PORT</code> - Email server port</li>
+                <li><code>EMAIL_HOST_USER</code> - Email username</li>
+                <li><code>EMAIL_HOST_PASSWORD</code> - Email password</li>
+                <li><code>EMAIL_USE_TLS</code> - Use TLS (True/False)</li>
+            </ul>
+            
+            <div class="alert alert-warning">
+                <strong>Security Note:</strong> Never commit your <code>.env</code> file to version control. Add it to your <code>.gitignore</code> file.
+            </div>
+        </div>
+        
+        <!-- <div id="endpoints" class="section">
+            <h2>API Endpoints</h2>
+            
+            <h3>Authentication</h3>
+            <ul>
+                <li><code>POST /api/auth/register/</code> - User registration</li>
+                <li><code>POST /api/auth/login/</code> - User login</li>
+                <li><code>POST /api/auth/logout/</code> - User logout</li>
+                <li><code>POST /api/auth/password/reset/</code> - Password reset request</li>
+                <li><code>POST /api/auth/password/reset/confirm/</code> - Password reset confirmation</li>
+            </ul>
+            
+            <h3>User Management</h3>
+            <ul>
+                <li><code>GET /api/users/</code> - List all users (Admin only)</li>
+                <li><code>GET /api/users/{id}/</code> - Get user details</li>
+                <li><code>PUT /api/users/{id}/</code> - Update user details</li>
+            </ul>
+        </div> -->
+    </div>
+
+    <script>
+        // Simple JavaScript for active menu item highlighting
+        document.querySelectorAll('.sidebar-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.sidebar-menu a').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

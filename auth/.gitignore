@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Environment
+.env
+env/
+
+# Static files at production
+/staticfiles/
